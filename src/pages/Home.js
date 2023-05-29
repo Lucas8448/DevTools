@@ -22,6 +22,12 @@ function Home() {
                         <p>Generate beautiful color palettes for your designs.</p>
                     </div>
                 </Link>
+                <Link to="/react-snippets" className="home-link">
+                    <div className="home-link-content">
+                        <h2>React Snippets</h2>
+                        <p>Useful React snippets for your react projects.</p>
+                    </div>
+                </Link>
             </div>
         </div>
     );

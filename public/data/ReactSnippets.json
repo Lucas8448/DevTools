@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "description": "Nested Routing with React Router",
+    "code": "import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';\n\n<Router>\n    <Switch>\n        <Route exact path='/'>\n            <Home />\n        </Route>\n        <Route path='/about'>\n            <About />\n        </Route>\n        <Route path='/users/:id' children={<User />}></Route>\n    </Switch>\n</Router>"
+  },
+  {
+    "id": "2",
+    "description": "Redux Action",
+    "code": "export const addTodo = (todo) => ({\n    type: 'ADD_TODO',\n    payload: todo,\n});"
+  },
+  {
+    "id": "3",
+    "description": "Redux Reducer",
+    "code": "export const todos = (state = [], action) => {\n    switch (action.type) {\n        case 'ADD_TODO':\n            return [...state, action.payload];\n        default:\n            return state;\n    }\n};"
+  },
+  {
+    "id": "4",
+    "description": "Redux Store",
+    "code": "import { createStore } from 'redux';\nimport rootReducer from './reducers';\n\nconst store = createStore(rootReducer);"
+  },
+  {
+    "id": "5",
+    "description": "React-Redux Provider",
+    "code": "import { Provider } from 'react-redux';\n\n<Provider store={store}>\n    <App />\n</Provider>"
+  },
+  {
+    "id": "6",
+    "description": "Redux useSelector Hook",
+    "code": "import { useSelector } from 'react-redux';\n\nconst todos = useSelector(state => state.todos);"
+  },
+  {
+    "id": "7",
+    "description": "Redux useDispatch Hook",
+    "code": "import { useDispatch } from 'react-redux';\n\nconst dispatch = useDispatch();\n\n// Use in function\ndispatch(addTodo(todo));"
+  },
+  {
+    "id": "8",
+    "description": "Custom Hook",
+    "code": "function useCustomHook() {\n    const [value, setValue] = useState(null);\n\n    useEffect(() => {\n        // Perform some action here\n        setValue('new value');\n    }, []);\n\n    return value;\n}"
+  },
+  {
+    "id": "9",
+    "description": "React Router useParam Hook",
+    "code": "import { useParams } from 'react-router-dom';\n\nfunction Component() {\n    let { id } = useParams();\n    return <div>User ID: {id}</div>;\n}"
+  }
+]
