@@ -1,0 +1,48 @@
+.home-container {
+  text-align: center;
+  padding: 2em;
+}
+
+.home-title {
+  font-size: 2em;
+  color: #333;
+}
+
+.home-description {
+  font-size: 1.2em;
+  color: #666;
+  margin: 1em 0;
+}
+
+.home-link-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.home-link {
+  width: 45%;
+  margin: 1em 0;
+  padding: 1em;
+  text-decoration: none;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.home-link:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.home-link-content h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.home-link-content p {
+  color: #666;
+}
