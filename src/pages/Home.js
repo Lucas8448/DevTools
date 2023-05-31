@@ -16,6 +16,12 @@ function Home() {
                         <p>Create custom CSS buttons with ease.</p>
                     </div>
                 </Link>
+                <Link to="/animation-designer" className="home-link">
+                    <div className="home-link-content">
+                        <h2>CSS Animation Designer</h2>
+                        <p>Create custom CSS animations with ease.</p>
+                    </div>
+                </Link>
                 <Link to="/color-palette-generator" className="home-link">
                     <div className="home-link-content">
                         <h2>Color Palette Generator</h2>
@@ -26,6 +32,12 @@ function Home() {
                     <div className="home-link-content">
                         <h2>React Snippets</h2>
                         <p>Useful React snippets for your react projects.</p>
+                    </div>
+                </Link>
+                <Link to="/vue-snippets" className="home-link">
+                    <div className="home-link-content">
+                        <h2>Vue Snippets</h2>
+                        <p>Useful Vue snippets for your vue projects.</p>
                     </div>
                 </Link>
             </div>

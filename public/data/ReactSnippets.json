@@ -1,47 +1,77 @@
 [
   {
     "id": "1",
-    "description": "Nested Routing with React Router",
-    "code": "import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';\n\n<Router>\n    <Switch>\n        <Route exact path='/'>\n            <Home />\n        </Route>\n        <Route path='/about'>\n            <About />\n        </Route>\n        <Route path='/users/:id' children={<User />}></Route>\n    </Switch>\n</Router>"
+    "description": "Rendering Lists",
+    "code": "const numbers = [1, 2, 3, 4, 5];\nconst listItems = numbers.map((number) => <li>{number}</li>);\n\nreturn (\n    <ul>{listItems}</ul>\n);"
   },
   {
     "id": "2",
-    "description": "Redux Action",
-    "code": "export const addTodo = (todo) => ({\n    type: 'ADD_TODO',\n    payload: todo,\n});"
+    "description": "useState Hook",
+    "code": "import { useState } from 'react';\n\nconst [count, setCount] = useState(0);"
   },
   {
     "id": "3",
-    "description": "Redux Reducer",
-    "code": "export const todos = (state = [], action) => {\n    switch (action.type) {\n        case 'ADD_TODO':\n            return [...state, action.payload];\n        default:\n            return state;\n    }\n};"
+    "description": "useEffect Hook",
+    "code": "import { useEffect } from 'react';\n\nuseEffect(() => {\n    document.title = `You clicked ${count} times`;\n}, [count]);"
   },
   {
     "id": "4",
-    "description": "Redux Store",
-    "code": "import { createStore } from 'redux';\nimport rootReducer from './reducers';\n\nconst store = createStore(rootReducer);"
+    "description": "Conditional Rendering",
+    "code": "return (\n    <div>\n        {isTrue ? 'This is true' : 'This is false'}\n    </div>\n);"
   },
   {
     "id": "5",
-    "description": "React-Redux Provider",
-    "code": "import { Provider } from 'react-redux';\n\n<Provider store={store}>\n    <App />\n</Provider>"
+    "description": "Event Handling",
+    "code": "const handleClick = () => {\n    setCount(count + 1);\n}\n\nreturn (\n    <button onClick={handleClick}>Click me</button>\n);"
   },
   {
     "id": "6",
-    "description": "Redux useSelector Hook",
-    "code": "import { useSelector } from 'react-redux';\n\nconst todos = useSelector(state => state.todos);"
+    "description": "Props in Functional Component",
+    "code": "function Welcome(props) {\n    return <h1>Hello, {props.name}</h1>;\n}"
   },
   {
     "id": "7",
-    "description": "Redux useDispatch Hook",
-    "code": "import { useDispatch } from 'react-redux';\n\nconst dispatch = useDispatch();\n\n// Use in function\ndispatch(addTodo(todo));"
+    "description": "State in Class Component",
+    "code": "class Example extends React.Component {\n    constructor(props) {\n        super(props);\n        this.state = {count: 0};\n    }\n}"
   },
   {
     "id": "8",
-    "description": "Custom Hook",
-    "code": "function useCustomHook() {\n    const [value, setValue] = useState(null);\n\n    useEffect(() => {\n        // Perform some action here\n        setValue('new value');\n    }, []);\n\n    return value;\n}"
+    "description": "Fetching Data from an API",
+    "code": "import React, { useEffect, useState } from 'react';\n\nfunction MyComponent() {\n    const [data, setData] = useState(null);\n\n    useEffect(() => {\n        fetch('https://api.example.com/data')\n            .then(response => response.json())\n            .then(data => setData(data));\n    }, []);\n\n    if (!data) {\n        return <div>Loading...</div>;\n    }\n\n    return <div>{data}</div>;\n}"
   },
   {
     "id": "9",
-    "description": "React Router useParam Hook",
-    "code": "import { useParams } from 'react-router-dom';\n\nfunction Component() {\n    let { id } = useParams();\n    return <div>User ID: {id}</div>;\n}"
+    "description": "Routing with React Router",
+    "code": "import React from 'react';\nimport { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';\n\nfunction App() {\n    return (\n        <Router>\n            <div>\n                <nav>\n                    <ul>\n                        <li>\n                            <Link to='/'>Home</Link>\n                        </li>\n                        <li>\n                            <Link to='/about'>About</Link>\n                        </li>\n                    </ul>\n                </nav>\n\n                <Switch>\n                    <Route exact path='/'>\n                        <Home />\n                    </Route>\n                    <Route path='/about'>\n                        <About />\n                    </Route>\n                </Switch>\n            </div>\n        </Router>\n    );\n}"
+  },
+  {
+    "id": "10",
+    "description": "Form Handling",
+    "code": "import React, { useState } from 'react';\n\nfunction MyForm() {\n    const [name, setName] = useState('');\n\n    const handleSubmit = (event) => {\n        event.preventDefault();\n        console.log('Submitted name:', name);\n    };\n\n    return (\n        <form onSubmit={handleSubmit}>\n            <label>\n                Name:\n                <input type='text' value={name} onChange={(event) => setName(event.target.value)} />\n            </label>\n            <button type='submit'>Submit</button>\n        </form>\n    );\n}"
+  },
+  {
+    "id": "11",
+    "description": "Context API",
+    "code": "import React, { useContext } from 'react';\n\nconst MyContext = React.createContext();\n\nfunction MyComponent() {\n    const value = useContext(MyContext);\n\n    return <div>Context Value: {value}</div>;\n}\n\nfunction App() {\n    return (\n        <MyContext.Provider value='Hello, Context!'>\n            <MyComponent />\n        </MyContext.Provider>\n    );\n}"
+  },
+  {
+    "id": "12",
+    "description": "Styling with CSS Modules",
+    "code": "import React from 'react';\nimport styles from './MyComponent.module.css';\n\nfunction MyComponent() {\n    return <div className={styles.container}>Styled with CSS Modules</div>;\n}\n\nexport default MyComponent;"
+  },
+  {
+    "id": "13",
+    "description": "Handling Form Validation",
+    "code": "import React, { useState, useEffect } from 'react';\n\nfunction MyForm() {\n    const [email, setEmail] = useState('');\n    const [password, setPassword] = useState('');\n    const [validForm, setValidForm] = useState(false);\n\n    const handleEmailChange = (event) => {\n        setEmail(event.target.value);\n    };\n\n    const handlePasswordChange = (event) => {\n        setPassword(event.target.value);\n    };\n\n    const handleSubmit = (event) => {\n        event.preventDefault();\n        // Perform form submission\n    };\n\n    useEffect(() => {\n        setValidForm(email !== '' && password !== '');\n    }, [email, password]);\n\n    return (\n        <form onSubmit={handleSubmit}>\n            <label>\n                Email:\n                <input type='email' value={email} onChange={handleEmailChange} />\n            </label>\n            <label>\n                Password:\n                <input type='password' value={password} onChange={handlePasswordChange} />\n            </label>\n            <button type='submit' disabled={!validForm}>Submit</button>\n        </form>\n    );\n}"
+  },
+  {
+    "id": "14",
+    "description": "Using Refs",
+    "code": "import React, { useRef } from 'react';\n\nfunction MyComponent() {\n    const inputRef = useRef(null);\n\n    const handleClick = () => {\n        inputRef.current.focus();\n    };\n\n    return (\n        <div>\n            <input type='text' ref={inputRef} />\n            <button onClick={handleClick}>Focus Input</button>\n        </div>\n    );\n}"
+  },
+  {
+    "id": "15",
+    "description": "Fetching Data with Axios",
+    "code": "import React, { useEffect, useState } from 'react';\nimport axios from 'axios';\n\nfunction MyComponent() {\n    const [data, setData] = useState(null);\n\n    useEffect(() => {\n        axios.get('https://api.example.com/data')\n            .then(response => setData(response.data));\n    }, []);\n\n    if (!data) {\n        return <div>Loading...</div>;\n    }\n\n    return <div>{data}</div>;\n}"
   }
 ]
